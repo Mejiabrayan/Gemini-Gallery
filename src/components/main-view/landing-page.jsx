@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import PhotoGrid from '../photo-grid/photo-grid';
+import Search from '../search/search';
 
 const LandingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -27,16 +29,18 @@ const LandingPage = () => {
             exit={{ opacity: 0 }}
             className='text-xl text-gray-700 mb-6'
           >
-            Search any photos you want to see and enjoy!
+            Find the perfect photo for your project
           </motion.div>
-          <div className='flex'>
-            <button className='px-4 py-2 rounded-lg shadow-lg bg-blue-500 hover:bg-blue-700 text-white font-bold'>
-              Browse Art
-            </button>
-            <button className='ml-4 px-4 py-2 rounded-lg shadow-lg bg-gray-300 text-gray-800 font-bold'>
-              Learn More
-            </button>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className='flex flex-col items-center'>
+              <Search />
+            </div>
+          </motion.div>
         </div>
       )}
     </AnimatePresence>
